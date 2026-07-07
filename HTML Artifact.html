@@ -1,0 +1,186 @@
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qualcomm News Monitor</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">Q</div>
+        <div>
+          <h1>Qualcomm Monitor</h1>
+          <p>Strategic news intelligence</p>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <button class="nav-item active" data-section="dashboard">
+          <span>Overview</span>
+          <strong>24</strong>
+        </button>
+        <button class="nav-item" data-section="market">
+          <span>Market Moves</span>
+          <strong>8</strong>
+        </button>
+        <button class="nav-item" data-section="competitors">
+          <span>Competitors</span>
+          <strong>7</strong>
+        </button>
+        <button class="nav-item" data-section="regulatory">
+          <span>Regulatory</span>
+          <strong>5</strong>
+        </button>
+        <button class="nav-item" data-section="technology">
+          <span>Technology</span>
+          <strong>4</strong>
+        </button>
+      </nav>
+
+      <div class="sidebar-card">
+        <span class="card-label">Signal health</span>
+        <div class="signal-row">
+          <div class="signal-dot"></div>
+          <span>Feeds active</span>
+        </div>
+        <p>Last refresh: <strong id="lastRefresh">Today, 09:42</strong></p>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Daily briefing</p>
+          <h2>Qualcomm News Monitoring Dashboard</h2>
+        </div>
+        <div class="topbar-actions">
+          <div class="search-wrap">
+            <input id="searchInput" type="search" placeholder="Search news, companies, topics...">
+          </div>
+          <button id="refreshBtn" class="primary-btn">Refresh</button>
+        </div>
+      </header>
+
+      <section class="hero-grid">
+        <article class="hero-card">
+          <div class="hero-copy">
+            <p class="eyebrow">Top signal</p>
+            <h3 id="topHeadline">AI PC momentum expands Qualcomm's addressable market</h3>
+            <p id="topSummary">
+              Recent OEM announcements and Snapdragon X Elite coverage suggest continued market attention on Qualcomm's client compute strategy.
+            </p>
+          </div>
+          <div class="hero-metric">
+            <span>Impact</span>
+            <strong>High</strong>
+          </div>
+        </article>
+
+        <article class="metric-card">
+          <span>Total articles</span>
+          <strong id="totalArticles">24</strong>
+          <p>Across monitored sources</p>
+        </article>
+
+        <article class="metric-card">
+          <span>High impact</span>
+          <strong id="highImpactCount">6</strong>
+          <p>Requires executive review</p>
+        </article>
+
+        <article class="metric-card">
+          <span>Sentiment</span>
+          <strong class="positive">+18%</strong>
+          <p>Net positive coverage</p>
+        </article>
+      </section>
+
+      <section class="controls">
+        <div class="filter-group">
+          <button class="filter active" data-filter="all">All</button>
+          <button class="filter" data-filter="High">High impact</button>
+          <button class="filter" data-filter="Medium">Medium</button>
+          <button class="filter" data-filter="Low">Low</button>
+        </div>
+
+        <div class="select-wrap">
+          <label for="topicSelect">Topic</label>
+          <select id="topicSelect">
+            <option value="all">All topics</option>
+            <option value="AI">AI</option>
+            <option value="Automotive">Automotive</option>
+            <option value="Mobile">Mobile</option>
+            <option value="Compute">Compute</option>
+            <option value="Regulatory">Regulatory</option>
+            <option value="Semiconductors">Semiconductors</option>
+          </select>
+        </div>
+      </section>
+
+      <section class="content-grid">
+        <div class="news-panel">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Live feed</p>
+              <h3>Monitored headlines</h3>
+            </div>
+            <span id="resultCount">24 results</span>
+          </div>
+
+          <div id="newsList" class="news-list"></div>
+        </div>
+
+        <aside class="insights-panel">
+          <div class="panel-section">
+            <div class="panel-header compact">
+              <h3>Topic heatmap</h3>
+            </div>
+            <div id="topicBars" class="topic-bars"></div>
+          </div>
+
+          <div class="panel-section">
+            <div class="panel-header compact">
+              <h3>Priority alerts</h3>
+            </div>
+            <div id="alertsList" class="alerts-list"></div>
+          </div>
+
+          <div class="panel-section">
+            <div class="panel-header compact">
+              <h3>Suggested actions</h3>
+            </div>
+            <ul class="actions-list">
+              <li>Prepare executive summary on AI PC coverage.</li>
+              <li>Monitor competitor modem and edge AI announcements.</li>
+              <li>Track regulatory developments in US, EU, and China.</li>
+            </ul>
+          </div>
+        </aside>
+      </section>
+    </main>
+  </div>
+
+  <div id="detailDrawer" class="drawer" aria-hidden="true">
+    <div class="drawer-backdrop" data-close-drawer=""></div>
+    <article class="drawer-panel">
+      <button class="drawer-close" data-close-drawer="" aria-label="Close detail panel">×</button>
+      <p id="drawerCategory" class="eyebrow"></p>
+      <h2 id="drawerTitle"></h2>
+      <div class="drawer-meta">
+        <span id="drawerSource"></span>
+        <span id="drawerDate"></span>
+        <span id="drawerImpact"></span>
+      </div>
+      <p id="drawerSummary"></p>
+      <div class="drawer-tags" id="drawerTags"></div>
+      <div class="drawer-analysis">
+        <h3>Why it matters</h3>
+        <p id="drawerAnalysis"></p>
+      </div>
+    </article>
+  </div>
+
+  <script src="app.js"></script>
+
+</body></html>
